@@ -121,7 +121,7 @@ body {
 .giftcard-text h1 {
     margin-top: 7px;
   font-size: 1.6rem;
-  color: red;
+  color: #03443c;
 }
 .giftcard-text h2 {
   font-size: 1.2rem;
@@ -165,8 +165,8 @@ body {
   line-height: 50px;
   text-align: center;
   background: white;
-  border: 3px solid red;
-  color: red;
+  border: 3px solid #03443c;
+  color: #03443c;
   font-size: 1.5rem;
   padding-left: 1rem;
   padding-right: 1rem;
